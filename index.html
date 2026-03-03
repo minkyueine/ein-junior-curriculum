@@ -167,7 +167,7 @@
                     </div>
                     <div class="hero__floating-notify" id="heroNotify">
                         <span class="hero__floating-notify-dot"></span>
-                        <span id="heroNotifyText">방금 <strong>김민준</strong>(9세)이 신청했어요</span>
+                        <span id="heroNotifyText">방금 <strong>김*준</strong>(9세)이 신청했어요</span>
                     </div>
                 </div>
             </div>
@@ -1166,7 +1166,7 @@
             setTimeout(() => {
                 _notifyIdx = (_notifyIdx + 1) % heroNotifyData.length;
                 const m = heroNotifyData[_notifyIdx];
-                txt.innerHTML = `방금 <strong>${m.last}${m.name}</strong>(${m.age}세)${m.p} 신청했어요`;
+                txt.innerHTML = `방금 <strong>${m.last}*${m.name.slice(-1)}</strong>(${m.age}세)${m.p} 신청했어요`;
                 wrap.style.opacity = '1';
             }, 450);
         }
