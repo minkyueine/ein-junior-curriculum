@@ -3874,6 +3874,11 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
     .scroll-top-btn {
         bottom: calc(var(--mobile-cta-h) + 0.75rem);
     }
+
+    /* 모바일: 영상 4개만 표시 (5번째부터 숨김) */
+    .video-card:nth-child(n+5) {
+        display: none;
+    }
 }
 
 /* ═══════════════════════════════════════════════════
