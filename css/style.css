@@ -3812,7 +3812,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
    MOBILE FIXED CTA BAR
    ============================================================ */
 .mobile-cta-bar {
-    display: none; /* 기본: 숨김 */
+    display: none !important; /* 전체 숨김 */
 }
 
 @media (max-width: 767px) {
