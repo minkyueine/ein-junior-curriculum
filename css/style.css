@@ -315,18 +315,19 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 .trust-bar {
     background: var(--slate-800);
     color: var(--white);
-    padding: 0.75rem 0;
+    padding: 0;                      /* 패딩 제거 — flex centering으로 대체 */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 3rem;  /* 48px — 세로 중앙 정렬 보장 */
+    height: 3rem;                    /* 고정 높이 + flex center = iOS 세로 중앙 보장 */
 }
 
 @media (min-width: 1024px) {
-    .trust-bar { padding: 1.25rem 0; }
+    .trust-bar { height: 3.75rem; }  /* 데스크톱 60px */
 }
 
 .trust-bar__inner {
+    width: 100%;
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 1rem;
@@ -334,6 +335,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 100%;                    /* 부모 높이 채움 */
     gap: 0.75rem;
     font-size: 0.75rem;
     font-weight: 700;
