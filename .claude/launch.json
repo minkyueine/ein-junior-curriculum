@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Junior Curriculum (Python)",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/minkyukang/serve_junior.py"],
+      "port": 8080
+    },
+    {
+      "name": "Junior Curriculum (npx serve)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "3000", "."],
+      "port": 3000
+    }
+  ]
+}
