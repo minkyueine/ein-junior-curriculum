@@ -558,7 +558,7 @@
                 </div>
 
                 <!-- 2. Children Talk -->
-                <div class="textbook-card textbook-card--teal" data-level="중급">
+                <div class="textbook-card textbook-card--teal" data-level="초중급">
                     <div class="textbook-card__header">
                         <span class="textbook-card__level">🎨 초·중급</span>
                         <h3 class="textbook-card__title">대화 유도 학습</h3>
@@ -572,7 +572,7 @@
                 </div>
 
                 <!-- 3. Talk To Me -->
-                <div class="textbook-card textbook-card--rose" data-level="중급">
+                <div class="textbook-card textbook-card--rose" data-level="초중급">
                     <div class="textbook-card__header">
                         <span class="textbook-card__level">✏️ 초·중급</span>
                         <h3 class="textbook-card__title">문장 만들기 학습</h3>
@@ -588,7 +588,7 @@
                 <!-- ROW 2: 초·중급 / 중급 -->
 
                 <!-- 4. 미국교과서 -->
-                <div class="textbook-card textbook-card--orange" data-level="중급">
+                <div class="textbook-card textbook-card--orange" data-level="초중급">
                     <div class="textbook-card__header">
                         <span class="textbook-card__level">📖 초·중급</span>
                         <h3 class="textbook-card__title">미국교과서 리딩</h3>
@@ -618,7 +618,7 @@
                 </div>
 
                 <!-- 5. Pattern -->
-                <div class="textbook-card textbook-card--purple" data-level="중급">
+                <div class="textbook-card textbook-card--purple" data-level="초중급">
                     <div class="textbook-card__header">
                         <span class="textbook-card__level">🔁 초·중급</span>
                         <h3 class="textbook-card__title">패턴문장 반복학습</h3>
@@ -648,7 +648,7 @@
                 <!-- ROW 3: 초·중급(심화) / 고급 -->
 
                 <!-- 7. Raz-Kids -->
-                <div class="textbook-card textbook-card--indigo" data-level="중급">
+                <div class="textbook-card textbook-card--indigo" data-level="초중급">
                     <div class="textbook-card__header">
                         <span class="textbook-card__level">📚 초·중급</span>
                         <h3 class="textbook-card__title">미국 원서를 활용한 통합적 언어학습</h3>
@@ -909,11 +909,12 @@
                     this.classList.add('is-active');
                     const filter = this.dataset.filter;
                     cards.forEach(card => {
-                        if (filter === '전체' || card.dataset.level === filter) {
-                            card.style.display = '';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        const level = card.dataset.level;
+                        const show = filter === '전체'
+                            || level === filter
+                            || (filter === '초급' && level === '초중급')
+                            || (filter === '중급' && level === '초중급');
+                        card.style.display = show ? '' : 'none';
                     });
                 });
             });
