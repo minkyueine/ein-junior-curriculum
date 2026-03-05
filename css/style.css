@@ -1969,11 +1969,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 }
 .flow-card:hover .flow-card__img-wrap img { transform: scale(1.05); }
 
-/* 카드 1 (flow1.jpeg): 아직 원형 이미지 아님 → cover 유지 */
-.flow-card--red .flow-card__img-wrap img {
-    object-fit: cover;
-    object-position: center 15%;
-}
 
 .flow-card__img-gradient {
     display: none;  /* 흰 배경 원형 이미지이므로 그라디언트 오버레이 불필요 */
