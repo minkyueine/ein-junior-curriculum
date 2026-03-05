@@ -98,7 +98,7 @@
             <div class="hero__text">
                 <div class="hero__badge hero-badge-pulse">
                     <span class="hero__badge-dot"></span>
-                    <span class="hero__badge-text">오늘 무료체험 마감 임박 · 잔여 <strong class="hero__badge-strong" id="badgeSeats">7석</strong></span>
+                    <span class="hero__badge-text">오늘 무료체험 마감 임박 · 잔여 <strong class="hero__badge-strong" id="badgeSeats">6석</strong></span>
                 </div>
                 <h1 class="hero__title">
                     우리 아이 첫 영어,<br>
@@ -1164,10 +1164,23 @@
         }
         setInterval(rotateHeroNotify, 20000);
 
-        // ── 잔여석 랜덤 (5~10) ───────────────────────────────
+        // ── 잔여석: localStorage로 유지 (6→3, 절대 올라가지 않음) ──
         const badgeSeats = document.getElementById('badgeSeats');
         if (badgeSeats) {
-            badgeSeats.textContent = (Math.floor(Math.random() * 6) + 5) + '석';
+            const SEATS_KEY = 'einSeatsRemaining';
+            const MAX_SEATS = 6;
+            const MIN_SEATS = 3;
+            let seats = parseInt(localStorage.getItem(SEATS_KEY), 10);
+            // 초기값이 없거나 범위 벗어나면 6으로 시작
+            if (isNaN(seats) || seats > MAX_SEATS || seats < MIN_SEATS) {
+                seats = MAX_SEATS;
+            }
+            // 40% 확률로 1 감소 (최소 3, 절대 증가 없음)
+            if (seats > MIN_SEATS && Math.random() < 0.4) {
+                seats--;
+            }
+            localStorage.setItem(SEATS_KEY, seats);
+            badgeSeats.textContent = seats + '석';
         }
 
         // ── Fixed mobile CTA bar: bottom-cta 섹션에서 숨김 ──
