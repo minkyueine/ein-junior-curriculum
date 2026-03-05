@@ -2064,6 +2064,8 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
+    width: 2.5rem;
+    min-width: 2.5rem;
 }
 
 .flow-timeline__num {
