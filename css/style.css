@@ -1953,30 +1953,25 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 .flow-card__img-wrap {
     position: relative;
     overflow: hidden;
-    height: 16rem;        /* 3장 모두 동일 높이 */
+    height: 16rem;
+    background: #fff;               /* 원형 이미지 뒤 흰 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flow-card__img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center top;   /* 얼굴/상체가 위쪽에 있는 사진에 최적 */
+    object-fit: contain;            /* 원형 이미지가 잘리지 않게 */
+    object-position: center center;
     transition: transform 0.5s;
 }
 .flow-card:hover .flow-card__img-wrap img { transform: scale(1.05); }
 
-/* 각 사진별 포커스 위치 세밀 조정 */
-.flow-card--red   .flow-card__img-wrap img { object-position: center 15%; }  /* 선생님 - 얼굴 중심 */
-.flow-card--teal  .flow-card__img-wrap img { object-position: center 20%; }  /* 책 읽는 아이들 */
-.flow-card--purple .flow-card__img-wrap img { object-position: center 10%; } /* 책 올린 아이 */
-
 .flow-card__img-gradient {
-    position: absolute;
-    inset: 0;
+    display: none;  /* 흰 배경 원형 이미지이므로 그라디언트 오버레이 불필요 */
 }
-.flow-card--red    .flow-card__img-gradient { background: linear-gradient(to bottom, transparent 30%, rgba(240,86,80,.85)); }
-.flow-card--teal   .flow-card__img-gradient { background: linear-gradient(to bottom, transparent 30%, rgba(212,96,78,.85)); }
-.flow-card--purple .flow-card__img-gradient { background: linear-gradient(to bottom, transparent 30%, rgba(188,79,66,.85)); }
 
 .flow-card__emoji {
     position: absolute;
